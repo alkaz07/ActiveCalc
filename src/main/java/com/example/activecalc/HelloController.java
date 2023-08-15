@@ -28,32 +28,28 @@ public class HelloController {
         bMinus.setOnAction(actionEvent -> decrementX());
         bPlus.setOnAction( actionEvent -> incrementX());
         textValue.setOnAction(actionEvent -> {
-            x = Integer.parseInt(textValue.getText());
-            log.setText(log.getText()+"\n"+"введено значение "+x);
-            sliderValue.adjustValue(x);
+           changeX(Integer.parseInt(textValue.getText()));
         });
-        sliderValue.setOnDragDetected(mouseEvent ->{
-            x = (int) Math.round( sliderValue.getValue());
-            textValue.setText(String.valueOf(x));
-            log.setText(log.getText()+"\n"+"слайдер "+ x);
-            sliderValue.adjustValue(x);
-
+        sliderValue.setOnMouseReleased(m->{
+            changeX ((int) Math.round( sliderValue.getValue()));
         });
     }
 
     public void incrementX()
     {
-        x++;
-        textValue.setText(String.valueOf(x));
-        log.setText(log.getText()+"\n"+"x увеличился и стал равен "+x);
-        sliderValue.adjustValue(x);
+        changeX(x+1);
     }
 
     public void decrementX()
     {
-        x--;
+        changeX(x-1);
+    }
+
+    public void changeX(int xnew)
+    {
+        x = xnew;
         textValue.setText(String.valueOf(x));
-        log.setText(log.getText()+"\n"+"x уменьшился и стал равен "+x);
+        log.setText(log.getText()+"\n"+"x изменился и стал равен "+x);
         sliderValue.adjustValue(x);
     }
 
