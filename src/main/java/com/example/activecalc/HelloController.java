@@ -20,6 +20,10 @@ public class HelloController {
     @FXML
     TextArea log;
 
+    @FXML
+    Slider slider2;
+
+
     int x=0;
 
     public void initialize()
@@ -33,6 +37,8 @@ public class HelloController {
         sliderValue.setOnMouseReleased(m->{
             changeX ((int) Math.round( sliderValue.getValue()));
         });
+
+        slider2.setOnMouseReleased(m->changeX((int) Math.round( slider2.getValue())));
     }
 
     public void incrementX()
@@ -51,6 +57,7 @@ public class HelloController {
         textValue.setText(String.valueOf(x));
         log.setText(log.getText()+"\n"+"x изменился и стал равен "+x);
         sliderValue.adjustValue(x);
+        slider2.adjustValue(x);
     }
 
 }

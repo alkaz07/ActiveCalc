@@ -14,5 +14,6 @@
       <Button fx:id="bMinus" layoutX="55.0" layoutY="116.0" mnemonicParsing="false" text="--" />
       <Slider fx:id="sliderValue" layoutX="119.0" layoutY="161.0" />
       <TextArea fx:id="log" layoutX="19.0" layoutY="202.0" prefHeight="146.0" prefWidth="340.0" />
+      <Slider fx:id="slider2" layoutX="19.0" layoutY="35.0" orientation="VERTICAL" />
    </children>
 </AnchorPane>
